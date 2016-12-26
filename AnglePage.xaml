@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
+            
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
