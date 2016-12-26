@@ -18,13 +18,12 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Image Grid.Row="0" Grid.Column="0" Margin="21,43,31,29.333" Source="/Assets/gait.jpg" />
         <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource ButtonTileStyle}" Content="Camera" Click="Camera_Click" FontSize="36" />
         <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonTileStyle}" Content="Green Screen" Click="BackgroundRemoval_Click" FontSize="36" />
         <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource ButtonTileStyle}" Content="Angles" Click="Angle_Click" FontSize="36" />
         <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource ButtonTileStyle}" Content="Height and&#xD;&#xA; Distances" Click="Gestures_Click" FontSize="36" />
         <Button Grid.Row="2" Style="{StaticResource ButtonTileStyle}" Content="Joint Selection" Click="JointSelection_Click" FontSize="36" Margin="22,20.333,18,20" Grid.Column="1" />
-        <TextBlock x:Name="textBlock1" Grid.Column="1" HorizontalAlignment="Left" Height="184" Margin="19,21,0,0" TextWrapping="Wrap" Text="GAIT ANALYSIS" VerticalAlignment="Top" Width="564" FontSize="48" Foreground="#FF37C1D0" Background="White" TextAlignment="Center" Grid.ColumnSpan="2"/>
         <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource ButtonTileStyle}" Content="Face Tracking" Click="Face_Click" FontSize="36" />
+        <TextBlock x:Name="textBlock" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="20,20,0,0" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="72" Text="TRACE" Foreground="#FF37C1D0" TextAlignment="Center"/>
     </Grid>
 </Page>
