@@ -167,6 +167,7 @@
   <ItemGroup>
     <Resource Include="Assets\gait.jpg" />
     <Resource Include="Assets\download.png" />
+    <Resource Include="Assets\logo.jpg" />
     <Content Include="Assets\VitruviusIcon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -84,3 +84,4 @@ C:\Users\Mini\Desktop\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.g.r
 C:\Users\Mini\Desktop\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.Properties.Resources.resources
 C:\Users\Mini\Desktop\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.csproj.GenerateResource.Cache
 >>>>>>> d5f8f2fd1a9c0b986468d7ad6a6c998d0f93e297
+C:\Users\Mini\Desktop\Gait-Analysis\bin\Debug\Kinect.Utilities.pdb
