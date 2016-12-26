@@ -39,3 +39,5 @@ C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightB
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\obj\Debug\LightBuzz.Vituvius.Samples.WPF.csproj.GenerateResource.Cache
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\obj\Debug\LightBuzz.Vituvius.Samples.WPF.exe
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\obj\Debug\LightBuzz.Vituvius.Samples.WPF.pdb
+C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\bin\Debug\Kinect.Utilities.dll
+C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\bin\Debug\Kinect.Utilities.pdb

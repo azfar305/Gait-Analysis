@@ -27,12 +27,15 @@
                     VerticalAlignment="Center"/>
             <TextBlock x:Name="pageTitle" Text="Height and Distance" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
-            <TextBlock x:Name="tblGestures" Text="-" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                       IsHitTestVisible="false" TextWrapping="NoWrap" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" />
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextAlignment="Right"
+                       IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,0,20,0">
+                <Run x:Name="tbHeight" Text="-" />m
+
+            </TextBlock>
         </Grid>
 
         <Grid Grid.Row="1">
-            <controls:KinectViewer x:Name="viewer" />
+            <controls:KinectViewer x:Name="viewer1" />
         </Grid>
     </Grid>
 </Page>

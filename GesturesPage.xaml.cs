@@ -3,6 +3,7 @@ using Microsoft.Kinect;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Kinect.Utilities;
 
 namespace LightBuzz.Vituvius.Samples.WPF
 {
@@ -13,11 +14,11 @@ namespace LightBuzz.Vituvius.Samples.WPF
     {
         KinectSensor _sensor;
         MultiSourceFrameReader _reader;
-        GestureController _gestureController;
+        PlayersController _userReporter;
 
         public GesturesPage()
         {
-            InitializeComponent();
+             InitializeComponent();
 
             _sensor = KinectSensor.GetDefault();
 
@@ -28,13 +29,20 @@ namespace LightBuzz.Vituvius.Samples.WPF
                 _reader = _sensor.OpenMultiSourceFrameReader(FrameSourceTypes.Color | FrameSourceTypes.Depth | FrameSourceTypes.Infrared | FrameSourceTypes.Body);
                 _reader.MultiSourceFrameArrived += Reader_MultiSourceFrameArrived;
 
-                _gestureController = new GestureController();
-                _gestureController.GestureRecognized += GestureController_GestureRecognized;
+                _userReporter = new PlayersController();
+                _userReporter.BodyEntered += UserReporter_BodyEntered;
+                _userReporter.BodyLeft += UserReporter_BodyLeft;
+                _userReporter.Start();
             }
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
+            if (_userReporter != null)
+            {
+                _userReporter.Stop();
+            }
+
             if (_reader != null)
             {
                 _reader.Dispose();
@@ -63,9 +71,9 @@ namespace LightBuzz.Vituvius.Samples.WPF
             {
                 if (frame != null)
                 {
-                    if (viewer.Visualization == Visualization.Color)
+                    if (viewer1.Visualization == Visualization.Color)
                     {
-                        viewer.Image = frame.ToBitmap();
+                        viewer1.Image = frame.ToBitmap();
                     }
                 }
             }
@@ -79,15 +87,36 @@ namespace LightBuzz.Vituvius.Samples.WPF
 
                     if (body != null)
                     {
-                        _gestureController.Update(body);
+                        viewer1.DrawBody(body);
+
+
+                        if (body != null && body.BodyJointTrack() == true)
+                        {
+                            double height = body.Kheight();
+                            tbHeight.Text = ((float)height).ToString();
+                        }
+                        else
+                            tbHeight.Text = "--";
+
+
+
+
                     }
                 }
             }
         }
 
-        void GestureController_GestureRecognized(object sender, GestureEventArgs e)
+        void UserReporter_BodyEntered(object sender, PlayersControllerEventArgs e)
         {
-            tblGestures.Text = e.GestureType.ToString();
+        }
+
+        void UserReporter_BodyLeft(object sender, PlayersControllerEventArgs e)
+        {
+            viewer1.Clear();
+            
+
+            tbHeight.Text = "-";
         }
     }
 }
+
