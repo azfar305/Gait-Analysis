@@ -105,10 +105,10 @@ namespace LightBuzz.Vituvius.Samples.WPF
                     if (body != null)
                     {
                         viewer.DrawBody(body);
-                       angle.Update(body.Joints[_start], body.Joints[_center], body.Joints[_end], 100);
-                        angle2.Update(body.Joints[_start2], body.Joints[_center2], body.Joints[_end2], 100);
-                        angle3.Update(body.Joints[_start3], body.Joints[_center3], body.Joints[_end3], 75);
-                        angle4.Update(body.Joints[_start4], body.Joints[_center4], body.Joints[_end4], 75);
+                        angle.Update(body.Joints[_start], body.Joints[_center], body.Joints[_end], 50);
+                        angle2.Update(body.Joints[_start2], body.Joints[_center2], body.Joints[_end2], 50);
+                        angle3.Update(body.Joints[_start3], body.Joints[_center3], body.Joints[_end3], 50);
+                        angle4.Update(body.Joints[_start4], body.Joints[_center4], body.Joints[_end4], 50);
 
                         tblAngle.Text = ((int)angle.Angle).ToString();
                         tblAngle2.Text = ((int)angle2.Angle).ToString();
@@ -129,8 +129,8 @@ namespace LightBuzz.Vituvius.Samples.WPF
             viewer.Clear();
             angle.Clear();
 
-           tblAngle.Text = "-";
-           tblAngle2.Text = "-";
+            tblAngle.Text = "-";
+            tblAngle2.Text = "-";
             tblAngle3.Text = "-";
             tblAngle4.Text = "-";
         }

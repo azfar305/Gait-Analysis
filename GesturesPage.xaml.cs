@@ -4,6 +4,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Kinect.Utilities;
+using System;
+
+
+
 
 namespace LightBuzz.Vituvius.Samples.WPF
 {
@@ -18,7 +22,7 @@ namespace LightBuzz.Vituvius.Samples.WPF
 
         public GesturesPage()
         {
-             InitializeComponent();
+            InitializeComponent();
 
             _sensor = KinectSensor.GetDefault();
 
@@ -94,12 +98,20 @@ namespace LightBuzz.Vituvius.Samples.WPF
                         {
                             double height = body.Kheight();
                             tbHeight.Text = ((float)height).ToString();
+
+                            double length1 = (Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
+                            tbLength1.Text = ((float)length1).ToString();
+
+                            double length2 = (Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight]) + Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft])) / 2 ;
+                            tbLength2.Text = ((float)length2).ToString();
+
                         }
                         else
+                        {
                             tbHeight.Text = "--";
-
-
-
+                            tbLength1.Text = "--";
+                            tbLength2.Text = "--";
+                        }
 
                     }
                 }
@@ -113,10 +125,35 @@ namespace LightBuzz.Vituvius.Samples.WPF
         void UserReporter_BodyLeft(object sender, PlayersControllerEventArgs e)
         {
             viewer1.Clear();
-            
-
             tbHeight.Text = "-";
+            tbLength1.Text = "-";
+            tbLength2.Text = "-";
+
+
+        }
+        public static double Length(Joint p1, Joint p2)
+        {
+            double x = Math.Pow(p1.Position.X - p2.Position.X, 2);
+            double y = Math.Pow(p1.Position.Y - p2.Position.Y, 2);
+            double z = Math.Pow(p1.Position.Z - p2.Position.Z, 2);
+
+            return (Math.Sqrt(x + y + z));
+
+        }
+
+        public static double Length(params Joint[] joints)
+        {
+            double len = 0;
+            for (int i = 0; i < joints.Length - 1; i++)
+            {
+                len += Length(joints[i], joints[i + 1]);
+
+            }
+            return len;
+
         }
     }
+
 }
+
 
