@@ -24,7 +24,7 @@
         <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource ButtonTileStyle}" Content="Height and&#xD;&#xA; Distances" Click="Gestures_Click" FontSize="36" />
         <Button Grid.Row="2" Style="{StaticResource ButtonTileStyle}" Content="Joint Selection" Click="JointSelection_Click" FontSize="36" Margin="22,20.333,18,20" Grid.Column="1" />
         <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource ButtonTileStyle}" Content="Face Tracking" Click="Face_Click" FontSize="36" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="50,75,43,62" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="72" Text="TRACE" Foreground="#FF37C1D0" TextAlignment="Center" Grid.Column="1"/>
-       
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="12,28,61,14.333" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="72" Text="TRACE" Foreground="#FF37C1D0" TextAlignment="Center" Grid.Column="1" Width="227"/>
+
     </Grid>
 </Page>

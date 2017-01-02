@@ -17,9 +17,6 @@ namespace LightBuzz.Vituvius.Samples.WPF
             frame.Navigate(new MainPage());
         }
 
-        private void Purchase_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://vitruviuskinect.com");
-        }
+      
     }
 }

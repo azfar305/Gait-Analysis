@@ -1,7 +1,7 @@
-C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\LightBuzz.Vituvius.Samples.WPF.exe.config
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\Assets\VitruviusIcon.ico
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\Assets\VitruviusIcon.png
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\Assets\VitruviusLogo.png
+C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\LightBuzz.Vituvius.Samples.WPF.exe.config
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\LightBuzz.Vituvius.Samples.WPF.exe
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\LightBuzz.Vituvius.Samples.WPF.pdb
 C:\Users\Az3o5\Documents\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\bin\Debug\Microsoft.Kinect.dll
