@@ -30,10 +30,10 @@
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextAlignment="Right"
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,0,20,0">
-                 <Run x:Name="tblAngle" Text="-" />°
-                <Run x:Name="tblAngle2" Text="-" />°
-                <Run x:Name="tblAngle3" Text="-" />°
-                <Run x:Name="tblAngle4" Text="-" />°
+                 <Run x:Name="tblAngle" Text="-" Background="#FFB7E674" />°
+                <Run x:Name="tblAngle2" Text="-" Background="Yellow" />°
+                <Run x:Name="tblAngle3" Text="-" Background="Red" />°
+                <Run x:Name="tblAngle4" Text="-" Background="Orange" />°
             </TextBlock>
         </Grid>
 
@@ -41,10 +41,10 @@
             <controls:KinectViewer x:Name="viewer" />
             <Viewbox>
                 <Canvas Width="1920" Height="1080">
-                    <controls:KinectAngle x:Name="angle" Opacity="0.5" Fill="Green" />
-                    <controls:KinectAngle x:Name="angle2" Opacity="0.5" Fill="Green" />
+                    <controls:KinectAngle x:Name="angle" Opacity="0.5" Fill="#FFB7E674" />
+                    <controls:KinectAngle x:Name="angle2" Opacity="0.5" Fill="Yellow" />
                     <controls:KinectAngle x:Name="angle3" Opacity="0.5" Fill="Red" />
-                    <controls:KinectAngle x:Name="angle4" Opacity="0.5" Fill="Purple" />
+                    <controls:KinectAngle x:Name="angle4" Opacity="0.5" Fill="Orange" />
                 </Canvas>
             </Viewbox>
         </Grid>
