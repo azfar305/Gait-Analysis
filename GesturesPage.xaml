@@ -32,13 +32,24 @@
                 <Run x:Name="tbHeight" Text="-" Background="Orange" />m
                 <Run x:Name="tbLength1" Text="-" Background="Yellow" />m
                 <Run x:Name="tbLength2" Text="-" Background="#FFF1C0C9" />m
-                
+
 
             </TextBlock>
         </Grid>
 
         <Grid Grid.Row="1">
-            <controls:KinectViewer x:Name="viewer1" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*" />
+                <ColumnDefinition Width="0.2*" />
+            </Grid.ColumnDefinitions>
+            <controls:KinectViewer  Grid.Column="0" x:Name="viewer1" />
+            <Button x:Name="button" Content="Start" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="10,475,10,0" VerticalAlignment="Top" Click="button_Click" FontSize="36" FontFamily="Arial"/>
+
+
         </Grid>
+
+
+
+
     </Grid>
 </Page>

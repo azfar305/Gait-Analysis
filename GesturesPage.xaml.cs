@@ -152,6 +152,16 @@ namespace LightBuzz.Vituvius.Samples.WPF
             return len;
 
         }
+        bool value = false;
+        public void start()
+        {
+            value = !value;
+            Console.WriteLine(value);
+        }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            start();
+        }
     }
 
 }
