@@ -29,9 +29,15 @@
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextAlignment="Right"
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,0,20,0">
-                <Run x:Name="tbHeight" Text="-" Background="Orange" />m
+                <Run x:Name="tbHeight"  Text="-" Background="Orange" />m
                 <Run x:Name="tbLength1" Text="-" Background="Yellow" />m
-                <Run x:Name="tbLength2" Text="-" Background="#FFF1C0C9" />m
+                <Run x:Name="tbLength2" Text="-" Background="Orange" />m
+                <Run x:Name="tbLength3" Text="-" Background="Yellow" />m
+                <Run x:Name="tbLength4" Text="-" Background="Orange" />m
+                <Run x:Name="tbLength5" Text="-" Background="Yellow" />m
+                <Run x:Name="tbLength6" Text="-" Background="Orange" />m
+                <Run x:Name="tbLength7" Text="-" Background="Yellow" />m
+                
 
 
             </TextBlock>
@@ -43,7 +49,7 @@
                 <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
             <controls:KinectViewer  Grid.Column="0" x:Name="viewer1" />
-            <Button x:Name="button" Content="Start" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="10,475,10,0" VerticalAlignment="Top" Click="button_Click" FontSize="36" FontFamily="Arial"/>
+            <Button x:Name="button" Content="Start" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="12,390,8,0" VerticalAlignment="Top" Click="button_Click" FontSize="36" FontFamily="Arial"/>
 
 
         </Grid>
