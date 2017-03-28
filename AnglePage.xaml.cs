@@ -3,6 +3,8 @@ using Microsoft.Kinect;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using System;
+using Kinect.Utilities;
 
 namespace LightBuzz.Vituvius.Samples.WPF
 {
@@ -15,6 +17,7 @@ namespace LightBuzz.Vituvius.Samples.WPF
         MultiSourceFrameReader _reader;
         PlayersController _userReporter;
 
+      /* 
         JointType _start = JointType.ShoulderLeft;
         JointType _center = JointType.ElbowLeft;
         JointType _end = JointType.WristLeft;
@@ -28,7 +31,7 @@ namespace LightBuzz.Vituvius.Samples.WPF
         JointType _center4 = JointType.ShoulderLeft;
         JointType _end4 = JointType.ElbowLeft;
 
-
+    */
         public AnglePage()
         {
             InitializeComponent();
@@ -41,7 +44,7 @@ namespace LightBuzz.Vituvius.Samples.WPF
 
                 _reader = _sensor.OpenMultiSourceFrameReader(FrameSourceTypes.Color | FrameSourceTypes.Depth | FrameSourceTypes.Infrared | FrameSourceTypes.Body);
                 _reader.MultiSourceFrameArrived += Reader_MultiSourceFrameArrived;
-
+                
                 _userReporter = new PlayersController();
                 _userReporter.BodyEntered += UserReporter_BodyEntered;
                 _userReporter.BodyLeft += UserReporter_BodyLeft;
@@ -105,18 +108,50 @@ namespace LightBuzz.Vituvius.Samples.WPF
                     if (body != null)
                     {
                         viewer.DrawBody(body);
-                        angle.Update(body.Joints[_start], body.Joints[_center], body.Joints[_end], 50);
-                        angle2.Update(body.Joints[_start2], body.Joints[_center2], body.Joints[_end2], 50);
-                        angle3.Update(body.Joints[_start3], body.Joints[_center3], body.Joints[_end3], 50);
-                        angle4.Update(body.Joints[_start4], body.Joints[_center4], body.Joints[_end4], 50);
+                        JointType[] points = new JointType[20];
 
-                        tblAngle.Text = ((int)angle.Angle).ToString();
-                        tblAngle2.Text = ((int)angle2.Angle).ToString();
-                        tblAngle3.Text = ((int)angle3.Angle).ToString();
-                        tblAngle4.Text = ((int)angle4.Angle).ToString();
+                         points[0] =  JointType.Head;
+                         points[1]  = JointType.Neck;
+                        points[2] = JointType.SpineShoulder;
+                         points[3] = JointType.ShoulderLeft;
+                         points[4] = JointType.ShoulderRight;
+                        points[5] = JointType.ElbowLeft;
+                        points[6] = JointType.ElbowRight;
+                        points[7] = JointType.WristLeft;
+                        points[8] = JointType.WristRight;
+                        points[9] = JointType.HandLeft;
+                        points[10] = JointType.HandRight;
 
+                        points[11]= JointType.SpineMid;
+                        var spineBase = JointType.SpineBase;
+                        points[12] = JointType.HipLeft;
+                        points[13] = JointType.HipRight;
+                        points[14] = JointType.KneeLeft;
+                        points[15] = JointType.KneeRight;
+                        points[16] = JointType.AnkleLeft;
+                        points[17] = JointType.AnkleRight;
+                        points[18] = JointType.FootLeft;
+                        points[19] = JointType.FootRight;
+
+                        JointType _center = spineBase;
+
+
+                        if (body != null && body.BodyJointTrack() == true)
+                        {
+                            /*
+                            angle.Update(body.Joints[points[0]], body.Joints[_center], body.Joints[_end], 50);
+                            angle2.Update(body.Joints[_start2], body.Joints[_center], body.Joints[_end2], 50);
+                            angle3.Update(body.Joints[_start3], body.Joints[_center], body.Joints[_end3], 50);
+                            angle4.Update(body.Joints[_start4], body.Joints[_center], body.Joints[_end4], 50);
+
+                            tblAngle.Text = ((int)angle.Angle).ToString();
+                            tblAngle2.Text = ((int)angle2.Angle).ToString();
+                            tblAngle3.Text = ((int)angle3.Angle).ToString();
+                            tblAngle4.Text = ((int)angle4.Angle).ToString();
+                            */
+                        }
                     }
-                }
+                }   
             }
         }
 

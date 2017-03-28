@@ -36,7 +36,7 @@ namespace LightBuzz.Vituvius.Samples.WPF
 
                 _reader = _sensor.OpenMultiSourceFrameReader(FrameSourceTypes.Color | FrameSourceTypes.Depth | FrameSourceTypes.Infrared | FrameSourceTypes.Body);
                 _reader.MultiSourceFrameArrived += Reader_MultiSourceFrameArrived;
-
+                
                 _userReporter = new PlayersController();
                 _userReporter.BodyEntered += UserReporter_BodyEntered;
                 _userReporter.BodyLeft += UserReporter_BodyLeft;
@@ -75,17 +75,31 @@ namespace LightBuzz.Vituvius.Samples.WPF
             var reference = e.FrameReference.AcquireFrame();
 
             // Color
+            
             using (var frame = reference.ColorFrameReference.AcquireFrame())
             {
+               
+
                 if (frame != null)
                 {
+                   // double fps = 1.0 / frame.ColorCameraSettings.FrameInterval.TotalSeconds;
                     if (viewer1.Visualization == Visualization.Color)
                     {
                         viewer1.Image = frame.ToBitmap();
+
                     }
+                    /*
+                    if (fps<29)
+                    {
+                        if (viewer1.Visualization == Visualization.Color)
+                        {
+                            viewer1.Image = frame.ToBitmap();
+                        }
+                    }
+                */
                 }
             }
-
+            
             // Body
             using (var frame = reference.BodyFrameReference.AcquireFrame())
             {
@@ -97,10 +111,11 @@ namespace LightBuzz.Vituvius.Samples.WPF
                     {
                         viewer1.DrawBody(body);
 
-                        System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\stride.txt",true);
+                        System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\frame6.txt",true);
                         if (body != null && body.BodyJointTrack() == true && value == true)
                         {
-                            /* double height = body.Kheight();
+                            /*
+                            double height = body.Height();
                              tbHeight.Text = ((float)height).ToString();
 
                              file.Write(tbHeight.Text);
@@ -138,10 +153,11 @@ namespace LightBuzz.Vituvius.Samples.WPF
                              file.Write(tbLength6.Text);
                              file.Write("\n");
                             */ 
-                            double stride = (Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
+                            double stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
                             tbLength7.Text = ((float)stride).ToString();
                             file.Write(tbLength7.Text);
                             file.Write("\n");
+                            
                             
                             /*
                             double x1 = body.Joints[JointType.AnkleRight].Position.X;
@@ -221,27 +237,9 @@ namespace LightBuzz.Vituvius.Samples.WPF
 
 
         }
-        public static double Length(Joint p1, Joint p2)
-        {
-            double x = Math.Pow(p1.Position.X - p2.Position.X, 2);
-            double y = Math.Pow(p1.Position.Y - p2.Position.Y, 2);
-            double z = Math.Pow(p1.Position.Z - p2.Position.Z, 2);
+       
 
-            return (Math.Sqrt(x + y + z));
-
-        }
-
-        public static double Length(params Joint[] joints)
-        {
-            double len = 0;
-            for (int i = 0; i < joints.Length - 1; i++)
-            {
-                len += Length(joints[i], joints[i + 1]);
-
-            }
-            return len;
-
-        }
+        
 
 
      
