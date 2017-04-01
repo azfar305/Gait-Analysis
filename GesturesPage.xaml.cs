@@ -1,4 +1,5 @@
-﻿using LightBuzz.Vitruvius;
+﻿
+using LightBuzz.Vitruvius;
 using Microsoft.Kinect;
 using System.Windows;
 using System.Windows.Controls;
@@ -99,8 +100,9 @@ namespace LightBuzz.Vituvius.Samples.WPF
                 */
                 }
             }
-            
+
             // Body
+          //System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\frame6.txt", true);
             using (var frame = reference.BodyFrameReference.AcquireFrame())
             {
                 if (frame != null)
@@ -111,7 +113,7 @@ namespace LightBuzz.Vituvius.Samples.WPF
                     {
                         viewer1.DrawBody(body);
 
-                        System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\frame6.txt",true);
+                        System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\light.txt",true);
                         if (body != null && body.BodyJointTrack() == true && value == true)
                         {
                             /*
@@ -153,8 +155,10 @@ namespace LightBuzz.Vituvius.Samples.WPF
                              file.Write(tbLength6.Text);
                              file.Write("\n");
                             */ 
-                            double stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
+                           double stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
+                           tbLength7.Text = Math.Round((Decimal)stride, 6, MidpointRounding.AwayFromZero).ToString();
                             tbLength7.Text = ((float)stride).ToString();
+                            
                             file.Write(tbLength7.Text);
                             file.Write("\n");
                             

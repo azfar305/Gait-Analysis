@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
-            
+
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
@@ -26,11 +26,13 @@
                     Style="{StaticResource NavigationBackButtonNormalStyle}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>
+
+
             <TextBlock x:Name="pageTitle" Text="Angle" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextAlignment="Right"
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,0,20,0">
-                 <Run x:Name="tblAngle" Text="-" Background="#FFB7E674" />°
+                 <Run x:Name="tblAngle" Text="-" Background="Blue" />°
                 <Run x:Name="tblAngle2" Text="-" Background="Yellow" />°
                 <Run x:Name="tblAngle3" Text="-" Background="Red" />°
                 <Run x:Name="tblAngle4" Text="-" Background="Orange" />°
@@ -40,11 +42,15 @@
         <Grid Grid.Row="1">
             <controls:KinectViewer x:Name="viewer" />
             <Viewbox>
-                <Canvas Width="1920" Height="1080">
-                    <controls:KinectAngle x:Name="angle" Opacity="0.5" Fill="#FFB7E674" />
+                <Canvas Width="1169" Height="799">
+                    <controls:KinectAngle x:Name="angle" Opacity="0.5" Fill="Blue" />
                     <controls:KinectAngle x:Name="angle2" Opacity="0.5" Fill="Yellow" />
                     <controls:KinectAngle x:Name="angle3" Opacity="0.5" Fill="Red" />
                     <controls:KinectAngle x:Name="angle4" Opacity="0.5" Fill="Orange" />
+                    <Grid Height="1014" Canvas.Left="1412" Canvas.Top="10" Width="149">
+                        <Button x:Name="button" Content="BEGIN" Click="button_Click" FontSize="36" FontFamily="Arial" Margin="22,645,-4,285" RenderTransformOrigin="0.515,-1.455"/>
+                    </Grid>
+
                 </Canvas>
             </Viewbox>
         </Grid>

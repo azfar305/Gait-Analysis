@@ -17,13 +17,15 @@ namespace LightBuzz.Vituvius.Samples.WPF
         MultiSourceFrameReader _reader;
         PlayersController _userReporter;
 
-      /* 
-        JointType _start = JointType.ShoulderLeft;
+      
+        JointType _end = JointType.ShoulderLeft;
         JointType _center = JointType.ElbowLeft;
-        JointType _end = JointType.WristLeft;
+        JointType _start = JointType.WristLeft;
+        
         JointType _start2 = JointType.ShoulderRight;
         JointType _center2 = JointType.ElbowRight;
         JointType _end2 = JointType.WristRight;
+        /*
         JointType _start3 = JointType.SpineShoulder;
         JointType _center3 = JointType.ShoulderRight;
         JointType _end3 = JointType.ElbowRight;
@@ -95,61 +97,144 @@ namespace LightBuzz.Vituvius.Samples.WPF
             }
 
             // Body
+          //  System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\angles10.txt", true);
+
             using (var frame = reference.BodyFrameReference.AcquireFrame())
             {
                 if (frame != null)
                 {
-                    var bodies = frame.Bodies();
+                    // var bodies = frame.Bodies();
+                    Body body = frame.Bodies().Closest();
+                    // _userReporter.Update(bodies);
 
-                    _userReporter.Update(bodies);
-
-                    Body body = bodies.Closest();
+                   // Body body = bodies.Closest();
 
                     if (body != null)
                     {
+                        System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\angles69.txt", true);
                         viewer.DrawBody(body);
-                        JointType[] points = new JointType[20];
+                        Joint[] points = new Joint[20];
 
-                         points[0] =  JointType.Head;
-                         points[1]  = JointType.Neck;
-                        points[2] = JointType.SpineShoulder;
-                         points[3] = JointType.ShoulderLeft;
-                         points[4] = JointType.ShoulderRight;
-                        points[5] = JointType.ElbowLeft;
-                        points[6] = JointType.ElbowRight;
-                        points[7] = JointType.WristLeft;
-                        points[8] = JointType.WristRight;
-                        points[9] = JointType.HandLeft;
-                        points[10] = JointType.HandRight;
+                         points[0] = body.Joints[JointType.Head];
+                         points[1] = body.Joints[JointType.Neck];
+                         points[2] = body.Joints[JointType.SpineShoulder];
+                         points[3] = body.Joints[JointType.ShoulderLeft];
+                         points[4] = body.Joints[JointType.ShoulderRight];
+                         points[5] = body.Joints[JointType.ElbowLeft];
+                         points[6] = body.Joints[JointType.ElbowRight];
+                         points[7] = body.Joints[JointType.WristLeft];
+                         points[8] = body.Joints[JointType.WristRight];
+                         points[9] = body.Joints[JointType.HandLeft];
+                         points[10] = body.Joints[JointType.HandRight];
 
-                        points[11]= JointType.SpineMid;
-                        var spineBase = JointType.SpineBase;
-                        points[12] = JointType.HipLeft;
-                        points[13] = JointType.HipRight;
-                        points[14] = JointType.KneeLeft;
-                        points[15] = JointType.KneeRight;
-                        points[16] = JointType.AnkleLeft;
-                        points[17] = JointType.AnkleRight;
-                        points[18] = JointType.FootLeft;
-                        points[19] = JointType.FootRight;
-
-                        JointType _center = spineBase;
+                         points[11]= body.Joints[JointType.SpineMid];
+                         var spineBase = body.Joints[JointType.SpineBase];
+                         points[12] = body.Joints[JointType.HipLeft];
+                         points[13] = body.Joints[JointType.HipRight];
+                         points[14] = body.Joints[JointType.KneeLeft];
+                         points[15] = body.Joints[JointType.KneeRight];
+                         points[16] = body.Joints[ JointType.AnkleLeft];
+                         points[17] = body.Joints[JointType.AnkleRight];
+                         points[18] = body.Joints[JointType.FootLeft];
+                         points[19] = body.Joints[ JointType.FootRight];
 
 
-                        if (body != null && body.BodyJointTrack() == true)
+                        //  JointType _center = spineBase;
+
+                        double incline, incline2, incline3;
+                        int k = 0;
+                        string flip, flip2, flip3, txt1, txt2, txt3;
+                        if (body != null && body.BodyJointTrack() == true && value == true)
                         {
-                            /*
-                            angle.Update(body.Joints[points[0]], body.Joints[_center], body.Joints[_end], 50);
-                            angle2.Update(body.Joints[_start2], body.Joints[_center], body.Joints[_end2], 50);
-                            angle3.Update(body.Joints[_start3], body.Joints[_center], body.Joints[_end3], 50);
-                            angle4.Update(body.Joints[_start4], body.Joints[_center], body.Joints[_end4], 50);
 
-                            tblAngle.Text = ((int)angle.Angle).ToString();
-                            tblAngle2.Text = ((int)angle2.Angle).ToString();
-                            tblAngle3.Text = ((int)angle3.Angle).ToString();
-                            tblAngle4.Text = ((int)angle4.Angle).ToString();
+                            //  incline = points[5].Angle(points[3], points[7]);
+                            //incline2 = points[6].Angle(points[8], points[4]);
+
+                            //incline3 = spineBase.Angle(points[2], points[11]);
+                            //  file1.Write(flip);
+                            //file1.Write("\n");
+
+                            // flip = ((int)incline).ToString();
+                            //flip2 = ((int)incline2).ToString();
+                            //flip3 = ((int)incline3).ToString();
+
+                            double stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
+                            flip2 = ((float)stride).ToString();
+                            file.Write(flip2);
+                            file.Write(",");
+
+
+
+                            for (int i=0;i<20;i++)
+                            {
+                                for(int j =0;j<20;j++)
+                                {
+                                    if(j>i)
+                                    {
+
+
+
+                                        incline = spineBase.Angle(points[i], points[j]);
+                                        flip = ((int)incline).ToString();
+                                        file.Write(flip);
+                                        
+                                        file.Write(",");
+                                     }
+                                        
+                                        
+                                        
+                                    }
+                                }
+
+                            //file.Write("\n\n\n\n\n\n");
+
+
+
+
+
+
+
+
+
+
+                            // angle.Update(body.Joints[_start], body.Joints[_center], body.Joints[_end], 50);
+
+                            // angle2.Update(body.Joints[_start], body.Joints[_center], body.Joints[_end], 50);
+                            //angle3.Update(body.Joints[_start2], body.Joints[_center2], body.Joints[_end2], 50);
+                            // angle4.Update(body.Joints[_start4], body.Joints[_center], body.Joints[_end4], 50);
+                            /*
+                            txt1 = ((int)angle2.Angle).ToString();
+                            tblAngle.Text = txt1;
+                            file.Write(txt1);
+                            file.Write(",");
+                            tblAngle2.Text = flip;
+                            file.Write(flip);
+                            file.Write(",");
+                            
+                            txt2= ((int)angle3.Angle).ToString();
+                             tblAngle3.Text=txt2;
+                            file.Write(txt2);
+                            file.Write(",");
+                            tblAngle4.Text = flip2;
+                            file.Write(flip2);
+                            file.Write(",");
+                            file.Write(flip3);
+                            file.Write("\n");
                             */
+                            //tblAngle4.Text = ((int)angle4.Angle).ToString();
+                            file.Write("\n");
                         }
+                        else
+                        {
+                            tblAngle.Text = "--";
+                            tblAngle2.Text = "--";
+                            tblAngle3.Text = "--";
+                            tblAngle4.Text = "--";
+
+
+                        }
+                        file.Close();
+                     
                     }
                 }   
             }
@@ -168,6 +253,20 @@ namespace LightBuzz.Vituvius.Samples.WPF
             tblAngle2.Text = "-";
             tblAngle3.Text = "-";
             tblAngle4.Text = "-";
+        }
+        bool value = false;
+        int count = 0;
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            begin();
+        }
+
+        public void begin()
+        {
+            if (count % 2 == 0)
+                value = true;
+            else
+                value = false;
         }
     }
 }
