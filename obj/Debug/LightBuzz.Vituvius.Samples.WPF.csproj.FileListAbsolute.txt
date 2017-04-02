@@ -38,3 +38,5 @@ C:\Users\Az3o5\Documents\Kinect Project\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0
 C:\Users\Az3o5\Documents\Kinect Project\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.g.resources
 C:\Users\Az3o5\Documents\Kinect Project\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.Properties.Resources.resources
 C:\Users\Az3o5\Documents\Kinect Project\Vitruvius\LightBuzz.Vitruvius.Free.1.5.0\Samples\LightBuzz.Vitruvius.Samples.WPF\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.csproj.GenerateResource.Cache
+C:\Users\nevp\Desktop\project\Gait-Analysis\bin\Debug\LightBuzz.Vituvius.Samples.WPF.exe.config
+C:\Users\nevp\Desktop\project\Gait-Analysis\obj\Debug\LightBuzz.Vituvius.Samples.WPF.pdb

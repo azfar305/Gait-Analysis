@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace LightBuzz.Vituvius.Samples.WPF
+namespace Trace
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

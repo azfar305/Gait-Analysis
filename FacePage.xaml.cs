@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LightBuzz.Vituvius.Samples.WPF
+namespace Trace
 {
     /// <summary>
     /// Interaction logic for FacePage.xaml

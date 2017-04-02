@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace LightBuzz.Vituvius.Samples.WPF
+namespace Trace
 {
     /// <summary>
     /// Interaction logic for BackgroundRemovalPage.xaml

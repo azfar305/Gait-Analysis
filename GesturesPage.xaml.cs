@@ -14,7 +14,7 @@ using System.Windows.Threading;
 
 
 
-namespace LightBuzz.Vituvius.Samples.WPF
+namespace Trace
 {
     /// <summary>
     /// Interaction logic for GesturesPage.xaml

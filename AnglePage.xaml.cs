@@ -6,7 +6,7 @@ using System.Windows.Navigation;
 using System;
 using Kinect.Utilities;
 
-namespace LightBuzz.Vituvius.Samples.WPF
+namespace Trace
 {
     /// <summary>
     /// Interaction logic for AnglePage.xaml
