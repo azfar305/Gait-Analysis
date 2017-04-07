@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LightBuzz.Vituvius.Samples.WPF"
+        xmlns:local="clr-namespace.:Trace.WPF"
         mc:Ignorable="d"
         Icon="/Assets/trace.png"
         Height="950" Width="1400"
@@ -16,9 +16,5 @@
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <Frame Grid.Row="0" Name="frame" NavigationUIVisibility="Hidden" />
-
-        <!--<Grid Grid.Row="1" Background="#37c1d0" Margin="0,20,0,0">
-          <Button Style="{StaticResource ButtonPurchaseStyle}" Content="Get Vitruvius" Click="Purchase_Click" /> *
-        </Grid>-->
     </Grid>
 </Window>
