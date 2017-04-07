@@ -270,22 +270,7 @@ namespace Trace
                                 file2.Write(flip2);
                                 file2.Write("\n");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                
-
+                          
                             }
                         }
                         else
@@ -352,9 +337,15 @@ namespace Trace
 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+    
+        private void button_Checked(object sender, RoutedEventArgs e)
         {
             start1();
+        }
+
+        private void button1_Checked(object sender, RoutedEventArgs e)
+        {
+            start2();
         }
     }
 

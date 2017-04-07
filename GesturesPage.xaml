@@ -37,7 +37,7 @@
                 <Run x:Name="tbLength5" Text="-" Background="Yellow" />m
                 <Run x:Name="tbLength6" Text="-" Background="Orange" />m
                 <Run x:Name="tbLength7" Text="-" Background="Yellow" />m
-                
+
 
 
             </TextBlock>
@@ -49,8 +49,8 @@
                 <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
             <controls:KinectViewer  Grid.Column="0" x:Name="viewer1" />
-            <ToggleButton x:Name="button" Content="Start" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="12,390,8,0" VerticalAlignment="Top" Click="button_Click" FontSize="36" FontFamily="Arial"/>
-
+            <ToggleButton x:Name="button" Content="Static" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="25,225,-5,0" VerticalAlignment="Top" Click="button_Click" FontSize="36" FontFamily="Arial"/>
+            <ToggleButton x:Name="button1" Content="Dynamic" HorizontalAlignment="Stretch" Height="55" Margin="450,325,110,0" VerticalAlignment="Top" Click="button_Click" FontSize="36" FontFamily="Arial"/>
 
         </Grid>
 

@@ -15,7 +15,7 @@
 
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="235,35,230,490" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="90" Text="TRACE" Foreground="#FF37C1D0" TextAlignment="Center" Width="435" Height="175"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="135" Margin="85,45,0,0" VerticalAlignment="Top" Width="125" Source="Assets/trace.png"/>
-        <Button Margin="297.5,260,297.5,125" Click="Button_Click">
+        <Button Margin="250,220,305,130" Click="Button_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
