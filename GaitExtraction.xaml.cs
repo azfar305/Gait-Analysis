@@ -125,7 +125,7 @@ namespace Trace
                         points[17] = body.Joints[JointType.AnkleRight];
                         points[18] = body.Joints[JointType.FootLeft];
                         points[19] = body.Joints[JointType.FootRight];
-                        double incline, stride;
+                        double incline,incline1, stride;
                         string flip1, flip2, flip3;
                         
 
@@ -138,6 +138,7 @@ namespace Trace
                                 
                                 double height = body.Height();
                                 flip3 = ((float)height).ToString();
+                                tbLength1.Text = flip3;
                                 file1.Write(flip3);
                                 file1.Write(",");
 
@@ -149,6 +150,7 @@ namespace Trace
                              
                                 double fullArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
                                 flip3 = ((float)fullArm).ToString();
+                                tbLength2.Text = flip3;
                                 file1.Write(flip3);
                                 file1.Write(",");
 
@@ -172,6 +174,7 @@ namespace Trace
 
                                 double fullLeg = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight], body.Joints[JointType.AnkleRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft], body.Joints[JointType.AnkleLeft])) / 2;
                                 flip3 = ((float)fullLeg).ToString();
+                                tbLength3.Text = flip3;
                                 file1.Write(flip3);
                                 file1.Write(",");
 
@@ -216,6 +219,18 @@ namespace Trace
 
                                     }
                                 }
+
+                                incline1 = spineBase.Angle(points[2], points[11]);
+                                tbAngle1.Text = ((int)incline1).ToString();
+
+                                incline1 = spineBase.Angle(points[4], points[10]);
+                                tbAngle2.Text = ((int)incline1).ToString();
+
+                                incline1 = spineBase.Angle(points[12], points[14]);
+                                tbAngle3.Text = ((int)incline1).ToString();
+
+
+
 
                                 stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
                                 flip2 = ((float)stride).ToString();
@@ -269,8 +284,7 @@ namespace Trace
 
 
 
-
-                                file2.Write("\n");
+                                
 
                             }
                         }
@@ -279,9 +293,9 @@ namespace Trace
                             tbLength1.Text = "-";
                             tbLength2.Text = "-";
                             tbLength3.Text = "-";
-                            tblAngle1.Text = "--";
-                            tblAngle2.Text = "--";
-                            tblAngle3.Text = "--";
+                            tbAngle1.Text = "--";
+                            tbAngle2.Text = "--";
+                            tbAngle3.Text = "--";
 
                         }
                         file1.Close();
@@ -299,7 +313,15 @@ namespace Trace
         {
             viewer.Clear();
 
-          
+            tbLength1.Text = "-";
+            tbLength2.Text = "-";
+            tbLength3.Text = "-";
+            tbAngle1.Text = "-";
+            tbAngle2.Text = "-";
+            tbAngle3.Text = "-";
+
+
+
         }
 
         bool value = false;
