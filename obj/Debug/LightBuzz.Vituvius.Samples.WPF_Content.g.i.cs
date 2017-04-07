@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/vitruviusicon.ico")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/vitruviusicon.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/vitruviuslogo.png")]
 
 

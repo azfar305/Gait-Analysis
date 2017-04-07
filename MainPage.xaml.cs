@@ -16,12 +16,12 @@ namespace Trace
 
         private void Camera_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CameraPage());
+           // NavigationService.Navigate(new CameraPage());
         }
 
         private void BackgroundRemoval_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new BackgroundRemovalPage());
+            //NavigationService.Navigate(new BackgroundRemovalPage());
         }
 
         private void Angle_Click(object sender, RoutedEventArgs e)
@@ -36,17 +36,17 @@ namespace Trace
 
         private void Face_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FacePage());
+            //NavigationService.Navigate(new FacePage());
         }
 
         private void JointSelection_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new JointSelectionPage());
+           // NavigationService.Navigate(new JointSelectionPage());
         }
 
         private void Features_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FeaturesPage());
+          //  NavigationService.Navigate(new FeaturesPage());
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)

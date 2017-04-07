@@ -72,27 +72,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BackgroundRemovalPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="GaitExtraction.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="CameraPage.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FacePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FeaturesPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="GesturesPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="JointSelectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -111,23 +95,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BackgroundRemovalPage.xaml.cs">
-      <DependentUpon>BackgroundRemovalPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CameraPage.xaml.cs">
-      <DependentUpon>CameraPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FacePage.xaml.cs">
-      <DependentUpon>FacePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FeaturesPage.xaml.cs">
-      <DependentUpon>FeaturesPage.xaml</DependentUpon>
+    <Compile Include="GaitExtraction.xaml.cs">
+      <DependentUpon>GaitExtraction.xaml</DependentUpon>
     </Compile>
     <Compile Include="GesturesPage.xaml.cs">
       <DependentUpon>GesturesPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="JointSelectionPage.xaml.cs">
-      <DependentUpon>JointSelectionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -169,15 +141,6 @@
     <Resource Include="Assets\download.png" />
     <Resource Include="Assets\logo.jpg" />
     <Resource Include="Assets\trace.png" />
-    <Content Include="Assets\VitruviusIcon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\VitruviusIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\VitruviusLogo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
