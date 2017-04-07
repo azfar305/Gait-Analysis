@@ -10,22 +10,23 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource ButtonTileStyle}" Content="Camera" Click="Camera_Click" FontSize="36" />
-        <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonTileStyle}" Content="Green Screen" Click="BackgroundRemoval_Click" FontSize="36" />
-        <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource ButtonTileStyle}" Content="Angles" Click="Angle_Click" FontSize="36" />
-        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource ButtonTileStyle}" Content="Height and&#xD;&#xA; Distances" Click="Gestures_Click" FontSize="36" />
-        <Button Grid.Row="2" Style="{StaticResource ButtonTileStyle}" Content="Joint Selection" Click="JointSelection_Click" FontSize="36" Margin="22,20.333,18,20" Grid.Column="1" />
-        <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource ButtonTileStyle}" Content="Face Tracking" Click="Face_Click" FontSize="36" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="12,28,61,14.333" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="72" Text="TRACE" Foreground="#FF37C1D0" TextAlignment="Center" Grid.Column="1" Width="227"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="130" Margin="165,55,0,0" VerticalAlignment="Top" Width="115" Source="Assets/trace.png"/>
 
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="235,35,230,490" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="90" Text="TRACE" Foreground="#FF37C1D0" TextAlignment="Center" Width="435" Height="175"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="135" Margin="85,45,0,0" VerticalAlignment="Top" Width="125" Source="Assets/trace.png"/>
+        <Button Margin="297.5,260,297.5,125" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Fill="#FF37C1D0">
+                        </Ellipse>
+                        <Ellipse Margin="60" Fill="#FF37C1D0" StrokeThickness="30" Stroke ="Black" ></Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>

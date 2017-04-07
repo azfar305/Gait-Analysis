@@ -40,7 +40,7 @@ namespace Trace {
     public partial class MainPage : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 27 "..\..\MainPage.xaml"
+        #line 16 "..\..\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock textBlock;
         
@@ -48,7 +48,7 @@ namespace Trace {
         #line hidden
         
         
-        #line 28 "..\..\MainPage.xaml"
+        #line 17 "..\..\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Image image;
         
@@ -86,58 +86,18 @@ namespace Trace {
             switch (connectionId)
             {
             case 1:
-            
-            #line 21 "..\..\MainPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Camera_Click);
-            
-            #line default
-            #line hidden
+            this.textBlock = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 2:
-            
-            #line 22 "..\..\MainPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.BackgroundRemoval_Click);
-            
-            #line default
-            #line hidden
+            this.image = ((System.Windows.Controls.Image)(target));
             return;
             case 3:
             
-            #line 23 "..\..\MainPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Angle_Click);
+            #line 18 "..\..\MainPage.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
             
             #line default
             #line hidden
-            return;
-            case 4:
-            
-            #line 24 "..\..\MainPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Gestures_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 5:
-            
-            #line 25 "..\..\MainPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.JointSelection_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 6:
-            
-            #line 26 "..\..\MainPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Face_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 7:
-            this.textBlock = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 8:
-            this.image = ((System.Windows.Controls.Image)(target));
             return;
             }
             this._contentLoaded = true;
