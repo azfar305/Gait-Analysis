@@ -39,14 +39,18 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kinect.Utilities">
-      <HintPath>..\..\..\..\Visual Studio 2015\Projects\Kinect.Utilities\Kinect.Utilities\bin\Release\Kinect.Utilities.dll</HintPath>
+    <Reference Include="Kinect.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Visual Studio 2015\Projects\Kinect.Utilities\Kinect.Utilities\bin\Release\Kinect.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="LightBuzz.Vitruvius, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Assemblies\WPF\LightBuzz.Vitruvius.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Kinect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Kinect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Editted codes\Body&amp;BodyIndex-WPF\bin\AnyCPU\Debug\Microsoft.Kinect.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Kinect.Face, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

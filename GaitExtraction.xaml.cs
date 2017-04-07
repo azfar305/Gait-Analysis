@@ -147,48 +147,54 @@ namespace Trace
                                 file1.Write(",");
                                 
                              
-                                double fullArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
+                                double fullArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
                                 flip3 = ((float)fullArm).ToString();
                                 file1.Write(flip3);
                                 file1.Write(",");
 
-                                double thigh = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight]) + Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft])) / 2 ;
-                                tbLength2.Text = ((float)thigh).ToString();
-                                file.Write(tbLength2.Text);
-                                file.Write("\t");
-
-                                double fullLeg = (Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight], body.Joints[JointType.AnkleRight]) + Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft], body.Joints[JointType.AnkleLeft])) / 2;
-                                tbLength3.Text = ((float)fullLeg).ToString();
-                                file.Write(tbLength3.Text);
-                                file.Write("\t");
+                                double upperArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft])) / 2;
+                                flip3 = ((float)upperArm).ToString();
+                                file1.Write(flip3);
+                                file1.Write(",");
 
 
-                                double torso = (Length(body.Joints[JointType.HipLeft], body.Joints[JointType.HipRight]));
-                                tbLength4.Text = ((float)torso).ToString();
-                                file.Write(tbLength4.Text);
-                                file.Write("\t");
-
-                                double upperArm = (Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight]) + Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft])) / 2;
-                                tbLength5.Text = ((float)upperArm).ToString();
-                                file.Write(tbLength5.Text);
-                                file.Write("\t");
+                                double lowerArm = (KinectUtlities.Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
+                                flip3 = ((float)lowerArm).ToString();
+                                file1.Write(flip3);
+                                file1.Write(",");
 
 
-                                double lowerArm = (Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
-                                tbLength6.Text = ((float)lowerArm).ToString();
-                                file.Write(tbLength6.Text);
-                                file.Write("\n");
-                                */
+                                double torso = (KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.HipRight]));
+                                flip3 = ((float)torso).ToString();
+                                file1.Write(flip3);
+                                file1.Write(",");
+
+
+                                double fullLeg = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight], body.Joints[JointType.AnkleRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft], body.Joints[JointType.AnkleLeft])) / 2;
+                                flip3 = ((float)fullLeg).ToString();
+                                file1.Write(flip3);
+                                file1.Write(",");
+
+                                double thigh = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft])) / 2 ;
+                                flip3 = ((float)thigh).ToString();
+                                file1.Write(flip3);
+                                file1.Write(",");
+
+                                double lowerLeg = ((KinectUtlities.Length(points[14], points[16])) + KinectUtlities.Length(points[15], points[17])) / 2;
+                                flip3 = ((float)lowerLeg).ToString();
+                                file1.Write(flip3);
+                                file1.Write("\n");
+
+
+
+
+
 
 
                             }
                             if(body != null && body.BodyJointTrack() == true && val == true)
                             {
-                                stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
-                                flip2 = ((float)stride).ToString();
-                                file2.Write(flip2);
-                                file2.Write(",");
-
+                                
 
                                 for (int i = 0; i < 20; i++)
                                 {
@@ -210,6 +216,59 @@ namespace Trace
 
                                     }
                                 }
+
+                                stride = (KinectUtlities.Length(body.Joints[JointType.AnkleLeft], body.Joints[JointType.AnkleRight]));
+                                flip2 = ((float)stride).ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                double elbowDist = KinectUtlities.Length(points[5], points[6]);
+                                flip2 = ((float)elbowDist).ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                double kneeDist = KinectUtlities.Length(points[14], points[15]);
+                                flip2 = ((float)kneeDist).ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                double handDist= KinectUtlities.Length(points[9], points[10]);
+                                flip2 = ((float)handDist).ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                float headX = points[0].Position.X;
+                                flip2 = headX.ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                float headY = points[0].Position.Y;
+                                flip2 = headY.ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                flip2 = ((float)points[14].Position.Y).ToString();
+                                file2.Write(flip2);
+                                file2.Write(",");
+
+                                flip2 = ((float)points[15].Position.Y).ToString();
+                                file2.Write(flip2);
+                                file2.Write("\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                 file2.Write("\n");
 
