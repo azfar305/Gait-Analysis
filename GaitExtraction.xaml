@@ -31,7 +31,7 @@
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}" TextAlignment="Right"
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="40,20,70,30" Grid.ColumnSpan="2">
-               
+                <Run x:Name="No_Joint" Text="-" Background="Blue" />
                 <Run x:Name="tbLength1" Text="-" Background="Yellow" />m
                 <Run x:Name="tbLength2" Text="-" Background="Orange" />m
                 <Run x:Name="tbLength3" Text="-" Background="Yellow" />m
@@ -51,8 +51,8 @@
                 <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
             <controls:KinectViewer  Grid.Column="0" x:Name="viewer" />
-            <ToggleButton x:Name="button" Content="Static" HorizontalAlignment="Stretch" Height="55" Margin="10,175,10,0" VerticalAlignment="Top" FontSize="36" FontFamily="Arial" Checked="button_Checked" Grid.Column="1"/>
-            <ToggleButton x:Name="button1" Content="Dynamic" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="10,345,10,0" VerticalAlignment="Top" FontSize="36" FontFamily="Arial" Checked="button1_Checked"/>
+            <Button x:Name="button" Content="Static" HorizontalAlignment="Stretch" Height="55" Margin="10,175,10,0" VerticalAlignment="Top" FontSize="36" FontFamily="Arial" Grid.Column="1" Click="button_Click"/>
+            <Button x:Name="button1" Content="Dynamic" Grid.Column="1" HorizontalAlignment="Stretch" Height="55" Margin="10,345,10,0" VerticalAlignment="Top" FontSize="36" FontFamily="Arial" Click="button1_Click"/>
 
         </Grid>
 

@@ -24,6 +24,7 @@ namespace Trace
     /// </summary>
     public partial class GaitExtraction : Page
     {
+        
         KinectSensor _sensor;
         MultiSourceFrameReader _reader;
         PlayersController _userReporter;
@@ -31,6 +32,8 @@ namespace Trace
         {
             InitializeComponent();
             _sensor = KinectSensor.GetDefault();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 3);
             if (_sensor != null)
             {
                 _sensor.Open();
@@ -72,6 +75,10 @@ namespace Trace
             }
         }
 
+        int count_joint;
+        double incline, incline1, stride, height, Kheight, fullLeg, fullArm, upperArm, lowerArm, torso, thigh, lowerLeg;
+        string flip1, flip2, flip3;
+        double elbowDist, kneeDist, handDist, headX, headY;
 
         void Reader_MultiSourceFrameArrived(object sender, MultiSourceFrameArrivedEventArgs e)
         {
@@ -99,8 +106,8 @@ namespace Trace
                     {
                         viewer.DrawBody(body);
 
-                        System.IO.StreamWriter file1 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\static.txt", true);
-                        System.IO.StreamWriter file2 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Dynamic Features\\dynamic.txt", true);
+                        System.IO.StreamWriter file1 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Readings\\staticsaish.txt", true);
+                        System.IO.StreamWriter file2 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Readings\\dynamicsaish.txt", true);
                         Joint[] points = new Joint[20];
 
                         points[0] = body.Joints[JointType.Head];
@@ -125,65 +132,63 @@ namespace Trace
                         points[17] = body.Joints[JointType.AnkleRight];
                         points[18] = body.Joints[JointType.FootLeft];
                         points[19] = body.Joints[JointType.FootRight];
-                        double incline,incline1, stride;
-                        string flip1, flip2, flip3;
-                        
-
-                        if (val == true || value == true)
-                        {
 
 
-                            if (body != null && body.BodyJointTrack() == true && value == true)
+
+                        count_joint = KinectUtlities.NumberOfTrackedJoints(points[0], points[1], points[2], points[3], points[4], points[5], points[6], points[7], points[8], points[9], points[10], points[11], points[12], points[13], points[14], points[15], points[16], points[17], spineBase );
+                        No_Joint.Text = count_joint.ToString();
+
+                        if (body != null && body.BodyJointTrack() == true && value == true)
                             {
                                 
-                                double height = body.Height();
+                                 height = body.Height();
                                 flip3 = ((float)height).ToString();
                                 tbLength1.Text = flip3;
                                 file1.Write(flip3);
                                 file1.Write(",");
 
-                                double Kheight = body.Kheight();
+                                Kheight = body.Kheight();
                                 flip3 = ((float)Kheight).ToString();
                                 file1.Write(flip3);
                                 file1.Write(",");
                                 
                              
-                                double fullArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
+                                fullArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
                                 flip3 = ((float)fullArm).ToString();
                                 tbLength2.Text = flip3;
                                 file1.Write(flip3);
                                 file1.Write(",");
 
-                                double upperArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft])) / 2;
+                                upperArm = (KinectUtlities.Length(body.Joints[JointType.ShoulderRight], body.Joints[JointType.ElbowRight]) + KinectUtlities.Length(body.Joints[JointType.ShoulderLeft], body.Joints[JointType.ElbowLeft])) / 2;
                                 flip3 = ((float)upperArm).ToString();
                                 file1.Write(flip3);
                                 file1.Write(",");
 
 
-                                double lowerArm = (KinectUtlities.Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
+                                 lowerArm = (KinectUtlities.Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristRight], body.Joints[JointType.HandRight]) + KinectUtlities.Length(body.Joints[JointType.ElbowRight], body.Joints[JointType.WristLeft], body.Joints[JointType.HandLeft])) / 2;
                                 flip3 = ((float)lowerArm).ToString();
                                 file1.Write(flip3);
                                 file1.Write(",");
 
 
-                                double torso = (KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.HipRight]));
+                                torso = (KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.HipRight]));
                                 flip3 = ((float)torso).ToString();
                                 file1.Write(flip3);
                                 file1.Write(",");
 
 
-                                double fullLeg = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight], body.Joints[JointType.AnkleRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft], body.Joints[JointType.AnkleLeft])) / 2;
+                                fullLeg = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight], body.Joints[JointType.AnkleRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft], body.Joints[JointType.AnkleLeft])) / 2;
                                 flip3 = ((float)fullLeg).ToString();
                                 tbLength3.Text = flip3;
                                 file1.Write(flip3);
                                 file1.Write(",");
 
-                                double thigh = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft])) / 2 ;
+                                thigh = (KinectUtlities.Length(body.Joints[JointType.HipRight], body.Joints[JointType.KneeRight]) + KinectUtlities.Length(body.Joints[JointType.HipLeft], body.Joints[JointType.KneeLeft])) / 2 ;
                                 flip3 = ((float)thigh).ToString();
                                 file1.Write(flip3);
                                 file1.Write(",");
 
-                                double lowerLeg = ((KinectUtlities.Length(points[14], points[16])) + KinectUtlities.Length(points[15], points[17])) / 2;
+                                lowerLeg = ((KinectUtlities.Length(points[14], points[16])) + KinectUtlities.Length(points[15], points[17])) / 2;
                                 flip3 = ((float)lowerLeg).ToString();
                                 file1.Write(flip3);
                                 file1.Write("\n");
@@ -195,7 +200,18 @@ namespace Trace
 
 
                             }
-                            if(body != null && body.BodyJointTrack() == true && val == true)
+
+                            else
+                           {
+                               tbLength1.Text = "--";
+                               tbLength2.Text = "--";
+                               tbLength3.Text = "--";
+                            }
+                            
+
+
+
+                        if (body != null && body.BodyJointTrack() == true && val == true)
                             {
                                 
 
@@ -237,27 +253,27 @@ namespace Trace
                                 file2.Write(flip2);
                                 file2.Write(",");
 
-                                double elbowDist = KinectUtlities.Length(points[5], points[6]);
+                                elbowDist = KinectUtlities.Length(points[5], points[6]);
                                 flip2 = ((float)elbowDist).ToString();
                                 file2.Write(flip2);
                                 file2.Write(",");
 
-                                double kneeDist = KinectUtlities.Length(points[14], points[15]);
+                                kneeDist = KinectUtlities.Length(points[14], points[15]);
                                 flip2 = ((float)kneeDist).ToString();
                                 file2.Write(flip2);
                                 file2.Write(",");
 
-                                double handDist= KinectUtlities.Length(points[9], points[10]);
+                                handDist= KinectUtlities.Length(points[9], points[10]);
                                 flip2 = ((float)handDist).ToString();
                                 file2.Write(flip2);
                                 file2.Write(",");
 
-                                float headX = points[0].Position.X;
+                                headX = points[0].Position.X;
                                 flip2 = headX.ToString();
                                 file2.Write(flip2);
                                 file2.Write(",");
 
-                                float headY = points[0].Position.Y;
+                                headY = points[0].Position.Y;
                                 flip2 = headY.ToString();
                                 file2.Write(flip2);
                                 file2.Write(",");
@@ -272,12 +288,10 @@ namespace Trace
 
                           
                             }
-                        }
+                        
                         else
                         {
-                            tbLength1.Text = "-";
-                            tbLength2.Text = "-";
-                            tbLength3.Text = "-";
+                            
                             tbAngle1.Text = "--";
                             tbAngle2.Text = "--";
                             tbAngle3.Text = "--";
@@ -304,6 +318,7 @@ namespace Trace
             tbAngle1.Text = "-";
             tbAngle2.Text = "-";
             tbAngle3.Text = "-";
+            No_Joint.Text = "-";
 
 
 
@@ -314,36 +329,43 @@ namespace Trace
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         public void start1()
         {
-
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+               
             value = true;
-           
+            
+
             dispatcherTimer.Start();
 
         }
-
+        int iter = 0;
         public void start2()
         {
-            val = true;
+            if (iter % 2 == 0)
+                val = true;
+            else
+                val = false;
+            iter++;
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-
+            
             value = false;
+            
 
             dispatcherTimer.Stop();
 
         }
 
     
-        private void button_Checked(object sender, RoutedEventArgs e)
+
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             start1();
+
+           
         }
 
-        private void button1_Checked(object sender, RoutedEventArgs e)
+        private void button1_Click(object sender, RoutedEventArgs e)
         {
             start2();
         }
