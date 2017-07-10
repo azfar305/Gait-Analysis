@@ -106,8 +106,8 @@ namespace Trace
                     {
                         viewer.DrawBody(body);
 
-                        System.IO.StreamWriter file1 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Readings\\staticsaish.txt", true);
-                        System.IO.StreamWriter file2 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Readings\\dynamicsaish.txt", true);
+                        System.IO.StreamWriter file1 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Readings\\staticTest.txt", false);
+                        System.IO.StreamWriter file2 = new System.IO.StreamWriter("C:\\Users\\Az3o5\\Desktop\\Readings\\dynamicTest.txt", false);
                         Joint[] points = new Joint[20];
 
                         points[0] = body.Joints[JointType.Head];
